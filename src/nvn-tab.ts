@@ -1,10 +1,9 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import type { TemplateResult } from 'lit';
 
-@customElement('nvn-tab')
 export class NvnTab extends LitElement {
 	@property({ type: Boolean, reflect: true }) public active = false;
 
@@ -94,6 +93,9 @@ export class NvnTab extends LitElement {
 			opacity: 0.08;
 		}
 	`;
+}
+if (!customElements.get('nvn-tab')) {
+	customElements.define('nvn-tab', NvnTab);
 }
 declare global {
 	interface HTMLElementTagNameMap {

@@ -1,7 +1,6 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
-@customElement('nvn-tab-bar')
 export class NvnTabBar extends LitElement {
 	@property({ type: Boolean }) public narrow = false;
 
@@ -57,6 +56,9 @@ export class NvnTabBar extends LitElement {
 	`;
 }
 
+if (!customElements.get('nvn-tab-bar')) {
+	customElements.define('nvn-tab-bar', NvnTabBar);
+}
 declare global {
 	interface HTMLElementTagNameMap {
 		'nvn-tab-bar': NvnTabBar;
